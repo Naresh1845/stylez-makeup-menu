@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylez Makeup Studio - Digital Menu</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500;600&display=swap');
+
+        :root {
+            --primary: #ED1A6D;
+            --secondary: #FF90B6;
+            --accent: #FFF2F7;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #fff5f9, #ffeef4);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .menu {
+            max-width: 850px;
+            margin: 30px auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(237, 26, 109, 0.1);
+            border-radius: 20px;
+            position: relative;
+            border: 1px solid #ffe6ee;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header img {
+            height: 100px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .search-bar {
+            margin: 30px 0;
+            position: relative;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 15px 50px 15px 45px;
+            border: 2px solid #ffe6ee;
+            border-radius: 50px;
+            font-size: 16px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ED1A6D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>') no-repeat 15px center;
+            background-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(237, 26, 109, 0.1);
+        }
+
+        .category {
+            font-family: 'Playfair Display', serif;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 30px 0 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .br {
+            font-family: 'Playfair Display', serif;
+            background: var(--accent);
+            color: var(--secondary);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin: 30px 0 20px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin: 15px 0;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(237, 26, 109, 0.08);
+            border-color: var(--accent);
+        }
+
+        .item span:first-child {
+            font-weight: 500;
+            color: #444;
+            flex-grow: 1;
+        }
+
+        .item span:last-child {
+            color: var(--primary);
+            font-weight: 600;
+            margin: 0 25px;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .item button {
+            background: var(--primary);
+            color: rgb(244, 241, 242);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .item button:hover {
+            background: #C7155B;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 8px rgba(237, 26, 109, 0.2);
+        }
+
+        #detailsModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+            animation: modalOpen 0.3s ease;
+        }
+
+        @keyframes modalOpen {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            font-size: 28px;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .close:hover {
+            color: #C7155B;
+        }
+
+        .footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            transition: all 0.2s ease;
+        }
+
+        .footer a:hover {
+            border-bottom-color: white;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                padding: 10px;
+                margin: 15px;
+            }
+            
+            .header h2 {
+                font-size: 2rem;
+            }
+            
+            .item {
+                display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 15px 0;
+    background: white;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    gap: 20px;
+            }
+            
+            .item span:last-child {
+                text-align: left;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <div class="header">
+            <img src="images/logo.png.jpg" alt="Stylez Makeup Studio">
+            <h1>Stylez Makeup Studio Hair and beauty salon</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search for services..." oninput="searchMenu()">
+        </div>
+        <div class="category">💆‍♀️ Facial & Skin Treatments <br>(Professional facials for glowing, youthful skin)<br></div>
+        <div class="item"><span>Basic Cleanup</span><span>Rs. 800</span><button onclick="showDetails('Cleanses, exfoliates, and refreshes skin')">Details</button></div>
+        <div class="item"><span>Glow Boost Facial</span><span>Rs. 1200</span><button onclick="showDetails('Instant radiance and hydration')">Details</button></div>
+        <div class="item"><span>Fruit Facial</span><span>Rs. 1200</span><button onclick="showDetails('Natural fruit extracts to nourish skin.')">Details</button></div>
+        <div class="item"><span>Gold Facial</span></span><span>Rs. 1200</span><button onclick="showDetails('Adds a golden glow and improves skin texture.')">Details</button></div>
+
+        <div class="category">💇‍♀️ Hair Care & Treatments</div>
+        <div class="item"><span>Glow Boost Facial</span><span>Rs. 1200</span><button onclick="showDetails('Instant radiance and hydration')">Details</button></div>
+        <div class="item"><span>Glow Boost Facial</span><span>Rs. 1200</span><button onclick="showDetails('Instant radiance and hydration')">Details</button></div>
+        <div class="item"><span>Glow Boost Facial</span><span>Rs. 1200</span><button onclick="showDetails('Instant radiance and hydration')">Details</button></div>
+        <div class="item"><span>Basic Haircut</span><span>Rs. 500</span><button onclick="showDetails('Customized styles for different looks')">Details</button></div>
+        <div class="item"><span>Hair Spa</span><span>Rs. 1500</span><button onclick="showDetails('Deep conditioning for nourishment')">Details</button></div>
+        <div id="detailsModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p id="modalText"></p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>📍 Address: Lumbini province, Ghorahi, Dang</p>
+        <p>📞 Contact: <a href="tel:+9779800000000">+977 9826457316</a></p>
+        <p>💬 WhatsApp: <a href="https://wa.me/9826457316">Chat Now</a></p>
+        <p>📧 Email: <a href="bimalakalathoki0@gmail.com">bimalakalathoki0@gmail.com</a></p>
+        <p>🏬 Our Branches: Dipsikha Road | Netrlal chowck | BP chowck</p>
+    </div>
+    <script>
+        // Existing JavaScript functions remain the same
+        function searchMenu() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let items = document.getElementsByClassName("item");
+            for (let item of items) {
+                let text = item.children[0].textContent.toLowerCase();
+                item.style.display = text.includes(input) ? "flex" : "none";
+            }
+        }
+        function showDetails(description) {
+            document.getElementById("modalText").textContent = description;
+            document.getElementById("detailsModal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("detailsModal").style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target.className === "modal") {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
