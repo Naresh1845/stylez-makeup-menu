@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +14,16 @@
             --accent: #FFF2F7;
         }
 
+        html,
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(45deg, #fff5f9, #ffeef4);
+            height: 100%;
             margin: 0;
-            padding: 20px;
-            color: #333;
-            min-height: 100vh;
-            box-sizing: border-box;
+            padding: 0;
+            background-image: url('images/logo.png.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .menu {
@@ -44,7 +47,7 @@
         .header img {
             height: 100px;
             margin-bottom: 20px;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
 
         .header h1 {
@@ -148,7 +151,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.4);
+            background: rgba(0, 0, 0, 0.4);
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -165,8 +168,15 @@
         }
 
         @keyframes modalOpen {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .close {
@@ -203,12 +213,43 @@
         .footer a {
             color: white;
             text-decoration: none;
-            border-bottom: 2px solid rgba(255,255,255,0.3);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.2s ease;
         }
 
         .footer a:hover {
             border-bottom-color: white;
+        }
+
+        .headingi,
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            gap: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            white-space: nowrap;
+        }
+
+        .headingi {
+            background-color: #e6007e;
+            color: white;
+            font-weight: bold;
+            border-radius: 7px;
+        }
+
+        .boxa {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .weblogo {
+            border-radius: 50%;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+            cursor: pointer;
         }
 
         @media (max-width: 768px) {
@@ -245,50 +286,690 @@
             .modal-content {
                 padding: 25px;
             }
+
+            .boxa:nth-child(1),
+            .boxa:nth-child(4) {
+                flex: 100%;
+                padding: 0;
+            }
+
+            .mainheading {
+                font-size: 24px !important;
+            }
+
+            .boxa1 {
+                display: block;
+                width: 100% !important;
+            }
+
+            .headingi,
+            .row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .headingi {
+                display: flex;
+                gap: 10px;
+                padding: 10px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="menu">
-        <div class="header">
-            <img src="logo.png.jpg" alt="Stylez Makeup Studio">
-            <h1>Stylez Makeup Studio Hair and beauty salon</h1>
-        </div>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search for services..." oninput="searchMenu()">
-        </div>
-        
-        <div class="category">💆‍♀️ Facial & Skin Treatments</div>
-        <div class="item"><span>Basic Cleanup</span><span>Rs. 800</span><button onclick="showDetails('Cleanses, exfoliates, and refreshes skin')">Details</button></div>
-        <div class="item"><span>Glow Boost Facial</span><span>Rs. 1200</span><button onclick="showDetails('Instant radiance and hydration')">Details</button></div>
-        <div class="item"><span>Fruit Facial</span><span>Rs. 1200</span><button onclick="showDetails('Natural fruit extracts to nourish skin')">Details</button></div>
-        <div class="item"><span>Gold Facial</span><span>Rs. 1200</span><button onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+    <div>
+        <div class="menu">
+            <div class="header">
+                <img src="images/logo.png.jpg" alt="Stylez Makeup Studio" class="weblogo">
+                <h1 class="mainheading">Stylez Makeup Studio Hair and beauty salon</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for services..." oninput="searchMenu()">
+            </div>
+            <div class="headingi">
+                <div class="boxa" style="cursor:pointer;">Service Name</div>
+                <div class="boxa" style="cursor:pointer;">Members</div>
+                <div class="boxa" style="cursor:pointer;">Non Members</div>
+                <div class="boxa" style="cursor:pointer;">Details</div>
+            </div>
+            <div class="category">Threading</div>
+            <div class="row item">
+                <div class="boxa boxa1 ">Eye brow threading</div>
+                <div class="boxa">Rs. 40</div>
+                <div class="boxa">Rs. 50</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Cleanses, exfoliates, and refreshes skin')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">upper lips threading</div>
+                <div class="boxa">Rs. 15</div>
+                <div class="boxa">Rs. 20</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Instant radiance and hydration')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Full face threading</div>
+                <div class="boxa">Rs. 120</div>
+                <div class="boxa">Rs. 150</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Natural fruit extracts to nourish skin')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Face razor</div>
+                <div class="boxa">Rs. 180</div>
+                <div class="boxa">Rs. 200</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Natural fruit extracts to nourish skin')">Details</button></div>
+            
+                    </div>
+                    <div class="row item">
+                        <div class="boxa ">Face razor with cleansing</div>
+                        <div class="boxa">Rs. 300</div>
+                        <div class="boxa">Rs. 350</div>
+                        <div class="boxa"><button class="btn"
+                                onclick="showDetails('Natural fruit extracts to nourish skin')">Details</button></div>
+                    </div>
+            <div class="category">Waxing</div>
+            <div class="row item">
+                <div class="boxa ">Full hand waxing</div>
+                <div class="boxa">Rs. 280</div>
+                <div class="boxa">Rs. 350</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Half Arms waxing</div>
+                <div class="boxa">Rs. 260</div>
+                <div class="boxa">Rs. 300</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Full leg Waxing</div>
+                <div class="boxa">Rs. 300</div>
+                <div class="boxa">Rs. 380</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Half leg waxing</div>
+                <div class="boxa">Rs. 240</div>
+                <div class="boxa">Rs. 300</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">under arms waxing</div>
+                <div class="boxa">Rs. 120</div>
+                <div class="boxa">Rs. 150</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Full face waxing</div>
+                <div class="boxa">Rs. 160</div>
+                <div class="boxa">Rs. 200</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
 
-        <div class="category">💇‍♀️ Hair Care & Treatments</div>
-        <div class="item"><span>Basic Haircut</span><span>Rs. 500</span><button onclick="showDetails('Customized styles for different looks')">Details</button></div>
-        <div class="item"><span>Hair Spa</span><span>Rs. 1500</span><button onclick="showDetails('Deep conditioning for nourishment')">Details</button></div>
+            <div class="category">Bleach</div>
+            <div class="row item">
+                <div class="boxa ">Face bleach</div>
+                <div class="boxa">Rs. 200</div>
+                <div class="boxa">Rs. 250</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Cleanses, exfoliates, and refreshes skin')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Face and neck bleach</div>
+                <div class="boxa">Rs. 280</div>
+                <div class="boxa">Rs. 350</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Instant radiance and hydration')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">hand bleach</div>
+                <div class="boxa">Rs. 490</div>
+                <div class="boxa">Rs. 550</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Natural fruit extracts to nourish skin')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">leg bleach</div>
+                <div class="boxa">Rs. 600</div>
+                <div class="boxa">Rs. 750</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
 
-        <div id="detailsModal" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
-                <p id="modalText"></p>
+            <div class="row item">
+                <div class="boxa ">detan pack  </div>
+                <div class="boxa">Rs. 225</div>
+                <div class="boxa">Rs. 280</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+
+            <div class="category">💆‍♀️ Besic Cleansing</div>
+            <div class="row item">
+                <div class="boxa ">Basic Cleansing</div>
+                <div class="boxa">Rs. 350</div>
+                <div class="boxa">Rs. 450</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Cleanses, exfoliates, and refreshes skin')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Glod cleansing</div>
+                <div class="boxa">Rs. 450</div>
+                <div class="boxa">Rs. 550</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Instant radiance and hydration')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Fruit cleansing</div>
+                <div class="boxa">Rs. 520</div>
+                <div class="boxa">Rs. 650</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Natural fruit extracts to nourish skin')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Advance cleansing</div>
+                <div class="boxa">Rs. 680</div>
+                <div class="boxa">Rs. 850</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">cleansing with mask</div>
+                <div class="boxa">Rs. 800</div>
+                <div class="boxa">Rs. 1050</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+
+            <div class="category">💆‍♀️ Facial</div>
+            <div class="row item">
+                <div class="boxa ">Vitamin C Facial</div>
+                <div class="boxa">Rs. 1200</div>
+                <div class="boxa">Rs. 1500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Gold Glow Facial</div>
+                <div class="boxa">Rs. 2000</div>
+                <div class="boxa">Rs. 2500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Diamond Facial</div>
+                <div class="boxa">Rs. 1200</div>
+                <div class="boxa">Rs. 1500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Tea Tree Facial</div>
+                <div class="boxa">Rs. 1200</div>
+                <div class="boxa">Rs. 1500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">24k Gold Facial</div>
+                <div class="boxa">Rs. 1600</div>
+                <div class="boxa">Rs. 2000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Whitening Facial</div>
+                <div class="boxa">Rs. 2800</div>
+                <div class="boxa">Rs. 3500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Aroma Facial</div>
+                <div class="boxa">Rs. 2000</div>
+                <div class="boxa">Rs. 2500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+
+            <div class="category">Advance Facial</div>
+            <div class="row item">
+                <div class="boxa ">Anti Acne Facial</div>
+                <div class="boxa">Rs. 2800</div>
+                <div class="boxa">Rs. 3500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Anti Wrincle Facial</div>
+                <div class="boxa">Rs. 2800</div>
+                <div class="boxa">Rs. 3500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Bridal glow Facial</div>
+                <div class="boxa">Rs. 4000</div>
+                <div class="boxa">Rs. 5000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Anti Pigmentation Facial</div>
+                <div class="boxa">Rs. 2800</div>
+                <div class="boxa">Rs. 3500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+
+            <div class="category">💆‍♀️ Facial with skin treatment</div>
+            <div class="row item">
+                <div class="boxa ">Hydra Facial</div>
+                <div class="boxa">Rs. 2800</div>
+                <div class="boxa">Rs. 3500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Wrinkle Treatment</div>
+                <div class="boxa">Rs. 2800</div>
+                <div class="boxa">Rs. 3500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Pigmentation treatment</div>
+                <div class="boxa">Rs. 2800</div>
+                <div class="boxa">Rs. 3500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Acne treatment</div>
+                <div class="boxa">Rs. 2800</div>
+                <div class="boxa">Rs. 3500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+
+            <div class="category">Pedicare</div>
+            <div class="row item">
+                <div class="boxa ">basic pedicare</div>
+                <div class="boxa">Rs. 450</div>
+                <div class="boxa">Rs. 500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Advance pedicare</div>
+                <div class="boxa">Rs. 600</div>
+                <div class="boxa">Rs. 750</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+
+            <div class="category">💆‍♀️ Hair SPA </div>
+            <div class="row item">
+                <div class="boxa ">Besic Hair SPA</div>
+                <div class="boxa">Rs. 400</div>
+                <div class="boxa">Rs. 500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Advance Hair SPA</div>
+                <div class="boxa">Rs. 800</div>
+                <div class="boxa">Rs. 1000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Advance keratin Hair SPA</div>
+                <div class="boxa">Rs. 1200</div>
+                <div class="boxa">Rs. 1500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Adds golden glow and improves texture')">Details</button></div>
+            </div>
+
+            <div class="category">💇‍♀️ Oil massage</div>
+            <div class="row item">
+                <div class="boxa ">Olive Oil massage</div>
+                <div class="boxa">Rs. 320</div>
+                <div class="boxa">Rs. 400</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Mustred Oil massage</div>
+                <div class="boxa">Rs. 320</div>
+                <div class="boxa">Rs. 400</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Navaratna oil massage</div>
+                <div class="boxa">Rs. 320</div>
+                <div class="boxa">Rs. 400</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Cooling, refreshing, stress-relieving, headache relief, muscle relaxation, scalp nourishment. ')">Details</button>
+                </div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">coconut Oil massage</div>
+                <div class="boxa">Rs. 320</div>
+                <div class="boxa">Rs. 400</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Hydrates the skin and promotes relaxation with natural coconut oil.')">Details</button>
+                </div>
+            </div>
+          
+            <div class="category">💆‍♀️ Hair straight </div>
+            <div class="row item">
+                <div class="boxa ">Small length</div>
+                <div class="boxa">Rs. 1450</div>
+                <div class="boxa">Rs. 1800</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="row item">
+                <div class="boxa ">medium length</div>
+                <div class="boxa">Rs. 2000</div>
+                <div class="boxa">Rs. 2500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="row item">
+                <div class="boxa ">long length</div>
+                <div class="boxa">Rs. 3200</div>
+                <div class="boxa">Rs. 4000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="category">💆‍♀️ Keratin straight </div>
+            <div class="row item">
+                <div class="boxa ">small length</div>
+                <div class="boxa">Rs. 3200</div>
+                <div class="boxa">Rs. 3800</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="row item">
+                <div class="boxa ">medium length</div>
+                <div class="boxa">Rs. 4800</div>
+                <div class="boxa">Rs. 5500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="row item">
+                <div class="boxa ">long length</div>
+                <div class="boxa">Rs. 6500</div>
+                <div class="boxa">Rs. 7000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="category">💆‍♀️ Botox treatment </div>
+            <div class="row item">
+                <div class="boxa ">small length</div>
+                <div class="boxa">Rs. 52000</div>
+                <div class="boxa">Rs. 6000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+          
+            <div class="row item">
+                <div class="boxa ">medium length</div>
+                <div class="boxa">Rs. 72000</div>
+                <div class="boxa">Rs. 8000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            
+            <div class="row item">
+                <div class="boxa ">long length</div>
+                <div class="boxa">Rs. 9200</div>
+                <div class="boxa">Rs. 10000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="category">💆‍♀️ Nanoplastia </div>
+            <div class="row item">
+                <div class="boxa ">small length</div>
+                <div class="boxa">Rs. 5200</div>
+                <div class="boxa">Rs. 6000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="row item">
+                <div class="boxa ">medium length</div>
+                <div class="boxa">Rs. 7200</div>
+                <div class="boxa">Rs. 8000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+
+            <div class="row item">
+                <div class="boxa ">long length</div>
+                <div class="boxa">Rs. 9200</div>
+                <div class="boxa">Rs. 10000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="category">💆‍♀️ makeup </div>
+
+            <div class="row item">
+                <div class="boxa ">normal make up</div>
+                <div class="boxa">Rs. 800</div>
+                <div class="boxa">Rs. 800</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">normal package makeup</div>
+                <div class="boxa">Rs. 1500</div>
+                <div class="boxa">Rs. 1500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">bride party makeup</div>
+                <div class="boxa">Rs. 5000</div>
+                <div class="boxa">Rs. 5000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">Bridal makeup</div>
+                <div class="boxa">Rs. 8000</div>
+                <div class="boxa">Rs. 8000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">bride package makeup</div>
+                <div class="boxa">Rs. 12000</div>
+                <div class="boxa">Rs. 12000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="category">💆‍♀️ hair curly </div>
+            <div class="row item">
+                <div class="boxa ">small </div>
+                <div class="boxa">Rs. 280</div>
+                <div class="boxa">Rs. 350</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">medium</div>
+                <div class="boxa">Rs. 360</div>
+                <div class="boxa">Rs. 450</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">long</div>
+                <div class="boxa">Rs. 450</div>
+                <div class="boxa">Rs. 550</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="category">💆‍♀️ hair iron </div>
+            <div class="row item">
+                <div class="boxa ">small</div>
+                <div class="boxa">Rs. 280</div>
+                <div class="boxa">Rs. 350</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">medium</div>
+                <div class="boxa">Rs. 360</div>
+                <div class="boxa">Rs. 450</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('hair iron through different equipment')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">long</div>
+                <div class="boxa">Rs. 450</div>
+                <div class="boxa">Rs. 550</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="category">💆‍♀️ hair cut  with wash </div>
+            <div class="row item">
+                <div class="boxa ">hair wash with blow dry</div>
+                <div class="boxa">Rs. 280</div>
+                <div class="boxa">Rs. 350</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">basic hair cut (straight, V , U ) </div>
+                <div class="boxa">Rs. 280</div>
+                <div class="boxa">Rs. 350</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">advance hair cut (layer, feather, wolf, butterfly)  </div>
+                <div class="boxa">Rs. 450</div>
+                <div class="boxa">Rs. 550</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">creative hair cut </div>
+                <div class="boxa">Rs. 520</div>
+                <div class="boxa">Rs. 650</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="category">💆‍♀️ hair cut  without wash </div>
+           
+            <div class="row item">
+                <div class="boxa ">basic hair cut (straight, V , U ) </div>
+                <div class="boxa">Rs. 120</div>
+                <div class="boxa">Rs. 150</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">advance hair cut(layer, feather, wolf, butterfly) </div>
+                <div class="boxa">Rs. 280</div>
+                <div class="boxa">Rs. 350</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">creative hair cut </div>
+                <div class="boxa">Rs. 360</div>
+                <div class="boxa">Rs. 450</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+
+            <div class="category">nail extension </div>
+            <div class="row item">
+                <div class="boxa ">normal nail extension</div>
+                <div class="boxa">Rs. 500</div>
+                <div class="boxa">Rs. 500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">gel nail extension </div>
+                <div class="boxa">Rs. 1500</div>
+                <div class="boxa">Rs. 1500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">bridal nail extension </div>
+                <div class="boxa">Rs. 2500</div>
+                <div class="boxa">Rs. 2500</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+       
+            <div class="category">mehendi design </div>
+            <div class="row item">
+                <div class="boxa ">normal design </div>
+                <div class="boxa">Rs. 1000</div>
+                <div class="boxa">Rs. 1000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div class="row item">
+                <div class="boxa ">bridal design </div>
+                <div class="boxa">Rs. 3000</div>
+                <div class="boxa">Rs. 3000</div>
+                <div class="boxa"><button class="btn"
+                        onclick="showDetails('Customized styles for different looks')">Details</button></div>
+            </div>
+            <div id="detailsModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <p id="modalText"></p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="footer">
-        <p>📍 Address: Lumbini province, Ghorahi, Dang</p>
-        <p>📞 Contact: <a href="tel:+9779826457316">+977 9826457316</a></p>
-        <p>💬 WhatsApp: <a href="https://wa.me/+9779826457316">Chat Now</a></p>
-        <p>📧 Email: <a href="mailto:bimalakalathoki0@gmail.com">bimalakalathoki0@gmail.com</a></p>
-        <p>🏬 Branches: Dipsikha Road | Netralal Chowk | BP Chowk</p>
+        <div class="footer">
+            <p>📍 Address: Lumbini province, Ghorahi, Dang</p>
+            <p>📞 Contact: <a href="tel:+9779826457316">+977 9826457316</a></p>
+            <p>💬 WhatsApp: <a href="https://wa.me/+9779826457316">Chat Now</a></p>
+            <p>📧 Email: <a href="mailto:bimalakalathoki0@gmail.com">bimalakalathoki0@gmail.com</a></p>
+            <p>🏬 Branches: Dipsikha Road | Netralal Chowk | BP Chowk</p>
+        </div>
     </div>
-
     <script>
         function searchMenu() {
             const input = document.getElementById("searchInput").value.toLowerCase();
             const items = document.getElementsByClassName("item");
-            
+
             for (let item of items) {
                 const text = item.children[0].textContent.toLowerCase();
                 item.style.display = text.includes(input) ? "flex" : "none";
@@ -304,11 +985,12 @@
             document.getElementById("detailsModal").style.display = "none";
         }
 
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             if (event.target === document.getElementById("detailsModal")) {
                 closeModal();
             }
         }
     </script>
 </body>
+
 </html>
